@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>TO DO TASKS</h1>
+    <form action="/addToDoItem/" method="post" >{% csrf_token %}
+        <input type="text" name="title" class="input">
+        <input type="submit" value="Add To Do Task" class="button">
+    </form>
+    <div class="task">
+    {% for i in todo_items %}
+        <input type="checkbox" class="todo">{{ i.title }}
+    <form action="deletetodoitem/{{ i.id }}/" method="post">{% csrf_token %}
+        <input type="submit" value="delete" class="delete"></form>
+    {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'posts' %}">
+        Task List
+    </a>
+    <h1>Edit task</h1>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    </form>
+{% endblock %}
